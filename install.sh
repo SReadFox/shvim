@@ -2,12 +2,15 @@
 
 shvim_home="$HOME/.shvim"
 
-echo "Thanks for installing shvim\n"
+echo "Thanks for installing shvim"
 
 # Backup existing .vim stuff
-echo "backing up current vim config\n"
+echo "Backing up current vim configuration"
 today=`date +%Y%m%d`
-for i in $HOME/.vim $HOME/.vimrc $HOME/.gvimrc; do [ -e $i ] && mv $i $i.$today; done
+for i in $HOME/.vim $HOME/.vimrc $HOME/.gvimrc
+do 
+  [ -e $i ] && mv $i $i.$today
+done
 
 
 echo "cloning shvim\n"
