@@ -1,0 +1,23 @@
+#!/usr/bin/env sh
+
+shvim_home="$HOME/.shvim"
+
+echo "Thanks for installing shvim\n"
+
+# Backup existing .vim stuff
+echo "backing up current vim config\n"
+today=`date +%Y%m%d`
+for i in $HOME/.vim $HOME/.vimrc $HOME/.gvimrc; do [ -e $i ] && mv $i $i.$today; done
+
+
+echo "cloning shvim\n"
+git clone https://silencemoon@github.com/silencemoon/shvim.git $shvim_home
+mkdir -p $shvim_home/.vim/bundle
+ln -s $shvim_home/.vimrc $HOME/.vimrc
+ln -s $shvim_home/.vim $HOME/.vim
+
+echo "Installing Vundle"
+git clone http://github.com/gmarik/vundle.git $HOME/.vim/bundle/vundle
+
+echo "installing plugins using Vundle"
+vim +BundleInstall! +BundleClean +q
