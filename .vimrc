@@ -13,8 +13,13 @@ Bundle 'gmarik/vundle'
 " My Bundles here:
 "
 "
-" 
-
+"
+Bundle 'bufexplorer.zip'
+Bundle 'The NERD tree'
+Bundle 'The NERD Commenter'
+Bundle 'DoxygenToolkit.vim'
+Bundle 'a.vim'
+Bundle 'winmanager'
 
 
 filetype plugin indent on 	" required!
@@ -25,3 +30,12 @@ filetype plugin indent on 	" required!
 "
 " color
 colorscheme desert
+"
+" TAB and space
+set tabstop=4
+set shiftwidth=4
+set expandtab
+" 
+" line number
+set number
+
