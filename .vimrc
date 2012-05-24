@@ -14,12 +14,11 @@ Bundle 'gmarik/vundle'
 "
 "
 "
-Bundle 'bufexplorer.zip'
-Bundle 'The NERD tree'
-Bundle 'The NERD Commenter'
-Bundle 'DoxygenToolkit.vim'
-Bundle 'a.vim'
-Bundle 'winmanager'
+Bundle 'vim-scripts/bufexplorer.zip'
+Bundle 'vim-scripts/DoxygenToolkit.vim'
+Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdcommenter'
 
 
 filetype plugin indent on 	" required!
