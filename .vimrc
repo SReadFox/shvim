@@ -18,6 +18,7 @@
     " plugins
     Bundle 'vim-scripts/bufexplorer.zip'
     Bundle 'fholgado/minibufexpl.vim'
+    Bundle 'vim-scripts/taglist.vim'
     Bundle 'vim-scripts/DoxygenToolkit.vim'
     Bundle 'scrooloose/syntastic'
     Bundle 'scrooloose/nerdtree'
@@ -33,6 +34,9 @@
 
     " color
     colorscheme desert
+
+    " color the 80th column, vim version >= 7.3
+    "set colorcolumn=80
 
     " show
     set showmode
@@ -80,10 +84,22 @@
     " }
 
     " minibufexpl {
+        let g:miniBufExplMapWindowNavVim=1 
+        let g:miniBufExplMapWindowNavArrows=1 
+        let g:miniBufExplMapCTabSwitchBufs=1 
+        let g:miniBufExplModSelTarget=1 
         " open next buffer
         map <S-n> :bn!<cr>
         " open previous buffer
         map <S-p> :bp!<cr> 
+    " }
+
+    " taglist {
+        let Tlist_Show_One_File=1
+        let Tlist_Exit_OnlyWindow=1
+        let Tlist_Use_Right_Window = 1
+        let Tlist_Sort_Type = "name"
+        map <F12> :Tlist<cr>
     " }
  
     " DoxygenToolkit {
@@ -95,7 +111,7 @@
     " }
  
     " nerdtree {
-    "
+        map nt :NERDTreeToggle<cr>
     " }
 
     " nerdcommenter {
