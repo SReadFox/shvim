@@ -112,6 +112,8 @@
  
     " nerdtree {
         map nt :NERDTreeToggle<cr>
+        " open nerdtree and taglist by one key
+        map wm :NERDTreeToggle<cr> :Tlist<cr>
     " }
 
     " nerdcommenter {
