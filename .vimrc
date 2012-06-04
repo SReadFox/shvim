@@ -41,6 +41,18 @@
 
     " line number
     set number
+
+    " split
+    map <S-s> :split<cr>
+    map <S-v> :vsplit<cr>
+
+    " windows size
+    " height
+    map <S-j> <C-W>+
+    map <S-k> <C-W>-
+    " width
+    map <S-h> <C-W><
+    map <S-l> <C-W>>
 " }
 
 
@@ -54,9 +66,9 @@
 
     " minibufexpl {
         " open next buffer
-        map <S-n> :bn<cr>
+        map <S-n> :bn!<cr>
         " open previous buffer
-        map <S-p> :bp<cr> 
+        map <S-p> :bp!<cr> 
     " }
  
     " DoxygenToolkit {
@@ -85,11 +97,13 @@
         " highlight warnings and errors
         let g:clang_hl_errors = 1
         " open quickfix window on error
-        let g:clang_complete_copen = 1
+        "let g:clang_complete_copen = 1
         " periodically update the quickfix window
-        let g:clang_periodic_quickfix = 1
+        "let g:clang_periodic_quickfix = 1
         " close the preview window automatically after acompletion
-        let g:clang_close_preview = 1
+        "let g:clang_close_preview = 1
+        " do not open the preview window
+        set completeopt = menu,longest
     " }
 
     " supertab {
