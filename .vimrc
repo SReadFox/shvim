@@ -17,13 +17,13 @@
 
     " plugins
     Bundle 'vim-scripts/bufexplorer.zip'
-    Bundle 'fholgado/minibufexpl.vim'
+    "Bundle 'fholgado/minibufexpl.vim'
     Bundle 'vim-scripts/DoxygenToolkit.vim'
     Bundle 'scrooloose/syntastic'
     Bundle 'scrooloose/nerdtree'
     Bundle 'scrooloose/nerdcommenter'
     Bundle 'Rip-Rip/clang_complete'
-    Bundle 'ervandew/supertab'
+    "Bundle 'ervandew/supertab'
 " }
 
 
@@ -103,7 +103,7 @@
         " close the preview window automatically after acompletion
         "let g:clang_close_preview = 1
         " do not open the preview window
-        set completeopt = menu,longest
+        set completeopt=menu,longest
     " }
 
     " supertab {
