@@ -1,0 +1,19 @@
+function CodeFormat()
+    " 取得当前光标所在行号
+    let lineNum = line(".")
+
+    " H头文件(文件类型识别为cpp)，CPP源程序
+    if &filetype == 'c' || &filetype == 'cpp'
+        " 调用外部程序astyle
+        exec "%!astyle --options=$HOME/.shvim/config/astylerc"
+        echohl WarningMsg | echo "code formatting done" | echohl None
+    else
+        echohl WarningMsg | echo "unsupported file type: ".&filetype | echohl None
+    endif
+
+    " 返回先前光标所在行号
+    exec lineNum
+endfunc
+
+" 映射快捷键
+map <S-F> <Esc>:call CodeFormat()<CR>

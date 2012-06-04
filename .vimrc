@@ -128,3 +128,12 @@
 " }
 
 
+" External Tools {
+
+    " Astyle {
+        source $HOME/.shvim/config/astyle 
+    " }
+
+" }
+
+
