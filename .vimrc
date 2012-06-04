@@ -34,6 +34,15 @@
     " color
     colorscheme desert
 
+    " show
+    set showmode
+    set showcmd
+    set showmatch
+
+    " search
+    set incsearch
+    set hlsearch
+
     " TAB and space
     set tabstop=4
     set shiftwidth=4
@@ -53,6 +62,12 @@
     " width
     map <S-h> <C-W><
     map <S-l> <C-W>>
+
+    " move among several windows
+    map <C-j> <C-W>j
+    map <C-k> <C-W>k
+    map <C-h> <C-W>h
+    map <C-l> <C-W>l
 " }
 
 
