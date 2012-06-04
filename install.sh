@@ -15,12 +15,14 @@ done
 
 
 echo "Cloning shvim"
-git clone https://silencemoon@github.com/silencemoon/shvim.git $shvim_home
 
 if [ -d $shvim_home ]
 then
     rm -rf $shvim_home
 fi
+
+git clone https://silencemoon@github.com/silencemoon/shvim.git $shvim_home
+
 mkdir -p $shvim_home/.vim/bundle
 ln -s $shvim_home/.vimrc $HOME/.vimrc
 ln -s $shvim_home/.vim $HOME/.vim
