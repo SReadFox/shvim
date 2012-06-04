@@ -17,6 +17,7 @@
 
     " plugins
     Bundle 'vim-scripts/bufexplorer.zip'
+    Bundle 'fholgado/minibufexpl.vim'
     Bundle 'vim-scripts/DoxygenToolkit.vim'
     Bundle 'scrooloose/syntastic'
     Bundle 'scrooloose/nerdtree'
@@ -47,11 +48,23 @@
 " Plugin Configurations {
 "
     " bufexplorer {
-    "
+    " \be to list buffers
+    " j, k to move, d to close, r to reverse order of buffer list
+    " }
+
+    " minibufexpl {
+        " open next buffer
+        map <S-n> :bn<cr>
+        " open previous buffer
+        map <S-p> :bp<cr> 
     " }
  
     " DoxygenToolkit {
         map do :Dox<cr>
+    " }
+
+    " syntastic {
+    "
     " }
  
     " nerdtree {
@@ -60,6 +73,23 @@
 
     " nerdcommenter {
         map cm <plug>NERDCommenterToggle
+    " }
+
+    " clang_complete {
+        " use libclang.so, not the executeable file clang
+        let g:clang_use_library = 1
+        " nothing is selected
+        let g:clang_auto_select = 0
+        " automatically complete after ->, ., ::
+        let g:clang_complete_auto = 1
+        " highlight warnings and errors
+        let g:clang_hl_errors = 1
+        " open quickfix window on error
+        let g:clang_complete_copen = 1
+        " periodically update the quickfix window
+        let g:clang_periodic_quickfix = 1
+        " close the preview window automatically after acompletion
+        let g:clang_close_preview = 1
     " }
 
     " supertab {
