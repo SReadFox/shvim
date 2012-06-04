@@ -21,8 +21,8 @@
     Bundle 'scrooloose/syntastic'
     Bundle 'scrooloose/nerdtree'
     Bundle 'scrooloose/nerdcommenter'
-    Bundle 'Shougo/neocomplcache'
     Bundle 'Rip-Rip/clang_complete'
+    Bundle 'ervandew/supertab'
 " }
 
 
