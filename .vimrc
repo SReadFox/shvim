@@ -73,6 +73,17 @@
     map <C-k> <C-W>k
     map <C-h> <C-W>h
     map <C-l> <C-W>l
+
+    " encoding
+    set encoding=utf-8
+    set fileencodings=utf-8,gbk,gb2312,gb18030,ucs-bom,cp936,latin1
+    " encode current file
+    map en :set fileencoding=utf-8<cr>
+
+    " quickfix
+    nmap <silent> <F6> :cn<cr>
+    nmap <silent> <F7> :cp<cr>
+    nmap <silent> <F10> :cw<cr>
 " }
 
 
