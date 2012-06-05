@@ -1,0 +1,33 @@
+if filereadable('tags')
+    set tags+=tags
+endif
+
+if has("cscope")    
+    set csto=0    
+    set cst    
+    set nocsverb    
+    "add cscope database file    
+    if filereadable("cscope.out")    
+        cscope add cscope.out .    
+        set cscopequickfix=s-,c-,d-,i-,t-,e-    
+    elseif $CSCOPE_DB != ""  
+        cscope add $CSCOPE_DB    
+    endif    
+    set csverb
+endif
+
+func! ProduceTags()    
+    if filereadable("tags")  
+        exec "!rm tags"    
+    endif    
+    if filereadable("cscope.out")   
+        exec "!rm cscope.*"    
+    endif    
+    exec "!ctags -R --c++-kinds=+p --fields=+ialS --extra=+q ."    
+    exec "!find . -name \"*.h\" -o -name \"*.hpp\" -o -name \"*.c\" -o -name \"*.cpp\" -o -name \"*.cc\" > cscope.files"
+    exec "!cscope -bkq -i cscope.files"    
+    set tags+=tags
+    cscope add cscope.out .
+endfunc
+
+nmap <silent> <F11> :call ProduceTags()<cr>

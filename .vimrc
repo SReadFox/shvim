@@ -153,6 +153,10 @@
         source $HOME/.shvim/config/astyle 
     " }
 
+    " ctags and cscope {
+        source $HOME/.shvim/config/tagscope 
+    " }
+
 " }
 
 
