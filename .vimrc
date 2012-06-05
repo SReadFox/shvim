@@ -17,7 +17,8 @@
 
     " plugins
     Bundle 'vim-scripts/bufexplorer.zip'
-    Bundle 'fholgado/minibufexpl.vim'
+    "Bundle 'fholgado/minibufexpl.vim'
+    Bundle 'vim-scripts/minibufexpl.vim'
     Bundle 'vim-scripts/taglist.vim'
     Bundle 'vim-scripts/DoxygenToolkit.vim'
     Bundle 'scrooloose/syntastic'
