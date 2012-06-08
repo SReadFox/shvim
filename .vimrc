@@ -16,7 +16,7 @@
     Bundle 'gmarik/vundle'
 
     " plugins
-    Bundle 'vim-scripts/bufexplorer.zip'
+    "Bundle 'vim-scripts/bufexplorer.zip'
     "Bundle 'fholgado/minibufexpl.vim'
     Bundle 'vim-scripts/minibufexpl.vim'
     Bundle 'vim-scripts/taglist.vim'

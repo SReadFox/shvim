@@ -2,18 +2,18 @@ if filereadable('tags')
     set tags+=tags
 endif
 
-if has("cscope")    
-    set cscopetag
-    set csto=0    
-    "add cscope database file    
-    if filereadable("cscope.out")    
-        cscope add cscope.out    
-        set cscopequickfix=s-,c-,d-,i-,t-,e-    
-    elseif $CSCOPE_DB != ""  
-        cscope add $CSCOPE_DB    
-    endif    
-    set cscopeverbose
-endif
+" already configured in /etc/vimrc by vim v7.2
+"if has("cscope")    
+"    set cscopetag
+"    set csto=0    
+"    if filereadable("cscope.out")    
+"        cscope add cscope.out    
+"        set cscopequickfix=s-,c-,d-,i-,t-,e-    
+"    elseif $CSCOPE_DB != ""  
+"        cscope add $CSCOPE_DB    
+"    endif    
+"    set cscopeverbose
+"endif
 
 func! ProduceTags()    
     if filereadable("tags")  
