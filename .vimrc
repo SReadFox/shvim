@@ -116,7 +116,7 @@
     " }
 
     " TagBar {
-         nnoremap <silent> <leader>tt :TagbarToggle<CR>
+        map tt :TagbarToggle<CR>
     " }
  
     " DoxygenToolkit {
