@@ -19,7 +19,8 @@
     "Bundle 'vim-scripts/bufexplorer.zip'
     "Bundle 'fholgado/minibufexpl.vim'
     Bundle 'vim-scripts/minibufexpl.vim'
-    Bundle 'vim-scripts/taglist.vim'
+    "Bundle 'vim-scripts/taglist.vim'
+    Bundle 'majutsushi/tagbar'
     Bundle 'vim-scripts/DoxygenToolkit.vim'
     Bundle 'scrooloose/syntastic'
     Bundle 'scrooloose/nerdtree'
@@ -107,11 +108,15 @@
     " }
 
     " taglist {
-        let Tlist_Show_One_File=1
-        let Tlist_Exit_OnlyWindow=1
-        let Tlist_Use_Right_Window = 1
-        let Tlist_Sort_Type = "name"
-        map <F12> :Tlist<cr>
+    "    let Tlist_Show_One_File=1
+    "    let Tlist_Exit_OnlyWindow=1
+    "    let Tlist_Use_Right_Window = 1
+    "    let Tlist_Sort_Type = "name"
+    "    map <F12> :Tlist<cr>
+    " }
+
+    " TagBar {
+         nnoremap <silent> <leader>tt :TagbarToggle<CR>
     " }
  
     " DoxygenToolkit {
@@ -125,7 +130,7 @@
     " nerdtree {
         map nt :NERDTreeToggle<cr>
         " open nerdtree and taglist by one key
-        map wm :NERDTreeToggle<cr> :Tlist<cr>
+        map wm :NERDTreeToggle<cr> :TagbarToggle<cr>
     " }
 
     " nerdcommenter {
