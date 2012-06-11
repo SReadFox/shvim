@@ -30,10 +30,6 @@
     Bundle 'tpope/vim-surround'
     Bundle 'vim-scripts/AutoClose'
     "Bundle 'Lokaltog/vim-powerline'
-    Bundle "MarcWeber/vim-addon-mw-utils"
-    Bundle "tomtom/tlib_vim"
-    Bundle "snipmate-snippets"
-    Bundle "garbas/vim-snipmate"
 " }
 
 
