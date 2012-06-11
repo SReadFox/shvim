@@ -30,6 +30,7 @@
     Bundle 'tpope/vim-surround'
     Bundle 'vim-scripts/AutoClose'
     "Bundle 'Lokaltog/vim-powerline'
+    Bundle 'vim-scripts/c.vim'
 " }
 
 
