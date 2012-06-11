@@ -29,6 +29,7 @@
     Bundle 'ervandew/supertab'
     Bundle 'tpope/vim-surround'
     Bundle 'vim-scripts/AutoClose'
+    Bundle 'Lokaltog/vim-powerline'
 " }
 
 
