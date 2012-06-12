@@ -1,0 +1,49 @@
+if filereadable('tags')
+    set tags+=tags
+endif
+
+" already configured in /etc/vimrc by vim v7.2
+"if has("cscope")    
+"    set cscopetag
+"    set csto=0    
+"    if filereadable("cscope.out")    
+"        cscope add cscope.out    
+"        set cscopequickfix=s-,c-,d-,i-,t-,e-    
+"    elseif $CSCOPE_DB != ""  
+"        cscope add $CSCOPE_DB    
+"    endif    
+"    set cscopeverbose
+"endif
+
+func! ProduceTags()    
+    if filereadable("tags")  
+        exec "!rm tags"    
+    endif    
+    if filereadable("cscope.out")   
+        exec "!rm cscope.*"    
+    endif    
+    exec "!ctags -R --c++-kinds=+p --fields=+ialS --extra=+q ."    
+    exec "!find . -name \"*.h\" -o -name \"*.hpp\" -o -name \"*.c\" -o -name \"*.cpp\" -o -name \"*.cc\" > cscope.files"
+    exec "!cscope -bkq -i cscope.files"    
+    set tags+=tags
+    cscope add cscope.out
+endfunc
+
+nmap <silent> <F11> :call ProduceTags()<cr>
+
+"   's'   symbol: find all references to the token under cursor
+"   'g'   global: find global definition(s) of the token under cursor
+"   'c'   calls:  find all calls to the function name under cursor
+"   't'   text:   find all instances of the text under cursor
+"   'e'   egrep:  egrep search for the word under cursor
+"   'f'   file:   open the filename under cursor
+"   'i'   includes: find files that include the filename under cursor
+"   'd'   called: find functions that function under cursor calls
+nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>    
+nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>    
+nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>    
+nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>    
+nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>    
+nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>    
+nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
