@@ -29,7 +29,7 @@
     Bundle 'ervandew/supertab'
     Bundle 'tpope/vim-surround'
     Bundle 'vim-scripts/AutoClose'
-    Bundle 'Lokaltog/vim-powerline'
+    "Bundle 'Lokaltog/vim-powerline'
     Bundle 'vim-scripts/c.vim'
     Bundle 'klen/python-mode'
     Bundle 'python.vim'
@@ -203,7 +203,7 @@
     " }
 
     " powerline {
-        let g:Powerline_symbols = 'fancy'
+        "let g:Powerline_symbols = 'fancy'
     " }
 
 
