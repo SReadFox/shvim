@@ -1,4 +1,4 @@
 shvim
-=====
+==================================================
 
-My vim configurations
+My vim configurations.

@@ -166,7 +166,16 @@
     " }
 
     " syntastic {
-    "
+        " Jump to the first error detected
+        let g:syntastic_auto_jump=1
+        " error window will be automatically opened when errors are
+        " detected, and closed when none are detected
+        let g:syntastic_auto_loc_list=1 
+        " the height of the location lists that syntastic opens
+        let g:syntastic_loc_list_height=10
+        " do syntax checks when buffers are first loaded as
+        " well as on saving
+        let g:syntastic_check_on_open=1 
     " }
  
     " nerdtree {
@@ -182,8 +191,8 @@
     " clang_complete {
         " use libclang.so, not the executeable file clang
         let g:clang_use_library = 1
-        " nothing is selected
-        let g:clang_auto_select = 0
+        " select the first entry but not insert into the code
+        let g:clang_auto_select = 1
         " automatically complete after ->, ., ::
         let g:clang_complete_auto = 1
         " highlight warnings and errors
@@ -193,9 +202,14 @@
         " periodically update the quickfix window
         "let g:clang_periodic_quickfix = 1
         " close the preview window automatically after acompletion
-        "let g:clang_close_preview = 1
-        " do not open the preview window
-        set completeopt=menu,longest
+        let g:clang_close_preview = 1
+        " do some snippets magic after a ( or a , inside function   
+        " call. Not currently fully working)
+        "let g:clang_snippets = 1
+        " complete preprocessor macros and constants
+        let g:clang_complete_macros = 1
+        " completion options
+        set completeopt=menu,longest,preview
     " }
 
     " supertab {

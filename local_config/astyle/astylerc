@@ -1,19 +1,19 @@
 function CodeFormat()
-    " 取得当前光标所在行号
+    " get current cursor position
     let lineNum = line(".")
 
-    " H头文件(文件类型识别为cpp)，CPP源程序
+    " C/CPP header file will be recognized as CPP
     if &filetype == 'c' || &filetype == 'cpp'
-        " 调用外部程序astyle
-        exec "%!astyle --options=$HOME/.vim/config/astyle/astyle.conf"
+        " call external tool - astyle
+        exec "%!astyle --options=$HOME/.vim/local_config/astyle/astyle.conf"
         echohl WarningMsg | echo "code formatting done" | echohl None
     else
-        echohl WarningMsg | echo "unsupported file type: ".&filetype | echohl None
+        echohl WarningMsg | echo "unsupported file type: ".&filetype 
+                \ | echohl None
     endif
 
-    " 返回先前光标所在行号
+    " return to the previous cursor position
     exec lineNum
 endfunc
 
-" 映射快捷键
 map <S-F> <Esc>:call CodeFormat()<CR>
