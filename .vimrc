@@ -41,6 +41,20 @@
     " color
     colorscheme desert
 
+    " syntax highlighting
+    syntax on
+
+    scriptencoding utf-8
+
+    " allow buffer switching without saving
+    set hidden
+
+    " highlight current line
+    set cursorline
+
+    " indent at the same level of the previous line
+    set autoindent
+
     " color the 80th column, vim version >= 7.3
     "set colorcolumn=80
 
@@ -179,4 +193,43 @@
 
 " }
 
+" Functions {
 
+" File Comment
+map <F4> :call FileComment()<cr>
+function AddFileComment()
+    call append(0, "/*")
+    call append(1, " * @file ".expand("%:t"))
+    call append(2, " * @brief ")
+    call append(3, " * ")
+    call append(4, " * @version 1.0")
+    call append(5, " * @date ".strftime("%a %b %e %H:%M:%S %Y"))
+    call append(6, " * ")
+    call append(7, " * @copyright Copyright (C) ".strftime("%Y")." UESTC")
+    call append(8, " * @author shiwei<shiwei2012@gmail.com>")
+    call append(9, " */")
+    echohl WarningMsg | echo "Successful in adding the copyright." | echohl None
+endfunc
+
+function UpdateFileComment()
+    normal m'
+    execute '/@file/s@e.*$@\="e ".expand("%:t")@'
+    execute "noh"
+    normal ''
+    echohl WarningMsg | echo "Successful in updating the copyright." | echohl None
+endfunc'
+
+function FileComment()
+    let n = 1 
+    while n < 10
+        let line = getline(n)
+        if line =~ '^ \*\s*\S* @file \S*.*$'
+            call UpdateFileComment()
+            return
+        endif
+        let n = n + 1
+    endwhile
+    call AddFileComment()
+endfunction"
+
+" }
