@@ -195,11 +195,11 @@
 " External Tools {
 
     " Astyle {
-        source $HOME/.shvim/config/astyle 
+        source $HOME/.vim/config/astyle/astylerc 
     " }
 
     " ctags and cscope {
-        source $HOME/.shvim/config/tagscope 
+        source $HOME/.vim/config/tagscoperc 
     " }
 
 " }

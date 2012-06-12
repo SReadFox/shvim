@@ -32,3 +32,7 @@ git clone http://github.com/gmarik/vundle.git $HOME/.vim/bundle/vundle
 
 echo "Installing plugins using Vundle"
 vim +BundleInstall! +BundleClean +q
+
+echo "Executing post-installation tasks"
+#cp -r $shvim_home/config $HOME/.vim/config
+ln -s $shvim_home/config $HOME/.vim/config
