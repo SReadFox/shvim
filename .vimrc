@@ -17,8 +17,9 @@
 
     " plugins
     "Bundle 'vim-scripts/bufexplorer.zip'
-    "Bundle 'fholgado/minibufexpl.vim'
-    Bundle 'vim-scripts/minibufexpl.vim'
+    Bundle 'fholgado/minibufexpl.vim'
+    "Bundle 'vim-scripts/minibufexpl.vim'
+    Bundle 'corntrace/bufexplorer'
     "Bundle 'vim-scripts/taglist.vim'
     Bundle 'majutsushi/tagbar'
     Bundle 'vim-scripts/DoxygenToolkit.vim'
@@ -29,7 +30,8 @@
     Bundle 'ervandew/supertab'
     Bundle 'tpope/vim-surround'
     Bundle 'vim-scripts/AutoClose'
-    Bundle 'Lokaltog/vim-powerline'
+    Bundle 'tpope/vim-fugitive'
+    "Bundle 'Lokaltog/vim-powerline'
     Bundle 'vim-scripts/c.vim'
     Bundle 'klen/python-mode'
     Bundle 'python.vim'
@@ -79,7 +81,7 @@
     set expandtab
 
     " Always show status line, even for one window
-    set laststatus=2
+    "set laststatus=2
     set statusline=%<%f\    " Filename
     set statusline+=%w%h%m%r " Options
     set statusline+=%fugitive#statusline() "  Git Hotness
@@ -211,6 +213,15 @@
 
     " powerline {
         "let g:Powerline_symbols = 'fancy'
+    " }
+    
+    " Fugitive {
+        nnoremap <silent> <leader>gs :Gstatus<CR>
+        nnoremap <silent> <leader>gd :Gdiff<CR>
+        nnoremap <silent> <leader>gc :Gcommit<CR>
+        nnoremap <silent> <leader>gb :Gblame<CR>
+        nnoremap <silent> <leader>gl :Glog<CR>
+        nnoremap <silent> <leader>gp :Git push<CR>
     " }
 
 
