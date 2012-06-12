@@ -23,9 +23,13 @@ fi
 
 git clone https://silencemoon@github.com/silencemoon/shvim.git $shvim_home
 
+echo "Preparing installation"
 mkdir -p $shvim_home/.vim/bundle
 ln -s $shvim_home/.vimrc $HOME/.vimrc
 ln -s $shvim_home/.vim $HOME/.vim
+
+#cp -r $shvim_home/config $HOME/.vim/config
+ln -s $shvim_home/local_config $HOME/.vim/local_config
 
 echo "Installing Vundle"
 git clone http://github.com/gmarik/vundle.git $HOME/.vim/bundle/vundle
@@ -33,6 +37,3 @@ git clone http://github.com/gmarik/vundle.git $HOME/.vim/bundle/vundle
 echo "Installing plugins using Vundle"
 vim +BundleInstall! +BundleClean +q
 
-echo "Executing post-installation tasks"
-#cp -r $shvim_home/config $HOME/.vim/config
-ln -s $shvim_home/config $HOME/.vim/config

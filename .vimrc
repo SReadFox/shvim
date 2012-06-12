@@ -142,7 +142,7 @@
     " }
  
     " DoxygenToolkit {
-        map do :Dox<cr>
+        map fg :Dox<cr>
     " }
 
     " syntastic {
@@ -188,6 +188,11 @@
         let g:pymode_lint_checker = "pyflakes"
     " }
 
+    " csupport {
+        let g:C_FormatTime='%a %b %e %H:%M:%S %Y'
+        let g:C_LocalTemplateFile=$HOME.'/.vim/local_config/csupport/Templates'
+    " }
+
 
 " }
 
@@ -195,11 +200,11 @@
 " External Tools {
 
     " Astyle {
-        source $HOME/.vim/config/astyle/astylerc 
+        source $HOME/.vim/local_config/astyle/astylerc 
     " }
 
     " ctags and cscope {
-        source $HOME/.vim/config/tagscoperc 
+        source $HOME/.vim/local_config/tagscoperc 
     " }
 
 " }
