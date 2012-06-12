@@ -172,10 +172,24 @@
         " detected, and closed when none are detected
         let g:syntastic_auto_loc_list=1 
         " the height of the location lists that syntastic opens
-        let g:syntastic_loc_list_height=10
+        let g:syntastic_loc_list_height=5
         " do syntax checks when buffers are first loaded as
         " well as on saving
-        let g:syntastic_check_on_open=1 
+        "let g:syntastic_check_on_open=1 
+
+        " check header files too
+        let g:syntastic_c_check_header = 1
+        let g:syntastic_cpp_check_header = 1
+        " re-check header files on every file write
+        let g:syntastic_c_auto_refresh_includes = 1
+        let g:syntastic_cpp_auto_refresh_includes = 1
+        " remove errors of files included via the g:syntastic_c_include_dirs
+        " setting from the result set
+        let g:syntastic_c_remove_include_errors = 1
+        let g:syntastic_cpp_remove_include_errors = 1
+        " additional compiler arguments like include directories or CFLAGS
+        let g:syntastic_c_config_file = '.syntastic_c_config'
+        let g:syntastic_cpp_config_file = '.syntastic_cpp_config'
     " }
  
     " nerdtree {
@@ -198,7 +212,7 @@
         " highlight warnings and errors
         let g:clang_hl_errors = 1
         " open quickfix window on error
-        "let g:clang_complete_copen = 1
+        let g:clang_complete_copen = 1
         " periodically update the quickfix window
         "let g:clang_periodic_quickfix = 1
         " close the preview window automatically after acompletion
