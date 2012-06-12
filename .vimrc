@@ -31,6 +31,10 @@
     Bundle 'vim-scripts/AutoClose'
     "Bundle 'Lokaltog/vim-powerline'
     Bundle 'vim-scripts/c.vim'
+    Bundle 'klen/python-mode'
+    Bundle 'python.vim'
+    Bundle 'python_match.vim'
+    Bundle 'pythoncomplete'
 " }
 
 
@@ -177,6 +181,11 @@
     " supertab {
         let g:SuperTabDefaultCompletionType = '<C-X><C-U>'
     " }
+
+    " python-mode {
+        let g:pymode_lint_checker = "pyflakes"
+    " }
+
 
 " }
 
