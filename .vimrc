@@ -60,7 +60,9 @@
     set autoindent
 
     " color the 80th column, vim version >= 7.3
-    "set colorcolumn=80
+    if version >= 703
+        set colorcolumn=80
+    endif
 
     " show
     set showmode
@@ -106,7 +108,7 @@
     " quickfix
     nmap <silent> <F6> :cn<cr>
     nmap <silent> <F7> :cp<cr>
-    nmap <silent> <F10> :cw<cr>
+    nmap <silent> <F8> :cw<cr>
 " }
 
 
