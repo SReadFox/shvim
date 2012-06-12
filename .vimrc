@@ -31,7 +31,7 @@
     Bundle 'tpope/vim-surround'
     Bundle 'vim-scripts/AutoClose'
     Bundle 'tpope/vim-fugitive'
-    "Bundle 'Lokaltog/vim-powerline'
+    Bundle 'Lokaltog/vim-powerline'
     Bundle 'vim-scripts/c.vim'
     Bundle 'klen/python-mode'
     Bundle 'python.vim'
@@ -81,14 +81,15 @@
     set expandtab
 
     " Always show status line, even for one window
-    "set laststatus=2
+    set laststatus=2
     set statusline=%<%f\    " Filename
     set statusline+=%w%h%m%r " Options
-    set statusline+=%fugitive#statusline() "  Git Hotness
-    set statusline+=\ [%&ff/%Y]            " filetype
-    set statusline+=\ [%getcwd()]          " current dir
+    set statusline+=%{fugitive#statusline()} "  Git Hotness
+    set statusline+=\ [%{&ff}/%Y]            " filetype
+    set statusline+=\ [%b/0x%B]            " ASCII value of char under cursor
+    set statusline+=\ [%{getcwd()}]          " current dir
     set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
-
+    
     " line number and column number
     set number
     set ruler
