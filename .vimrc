@@ -26,7 +26,8 @@
     Bundle 'scrooloose/syntastic'
     Bundle 'scrooloose/nerdtree'
     Bundle 'scrooloose/nerdcommenter'
-    Bundle 'Rip-Rip/clang_complete'
+    "Bundle 'Rip-Rip/clang_complete'
+    Bundle 'exclipy/clang_complete'
     Bundle 'ervandew/supertab'
     Bundle 'tpope/vim-surround'
     Bundle 'vim-scripts/AutoClose'
@@ -34,9 +35,9 @@
     "Bundle 'Lokaltog/vim-powerline'
     Bundle 'vim-scripts/c.vim'
     Bundle 'klen/python-mode'
-    Bundle 'python.vim'
-    Bundle 'python_match.vim'
-    Bundle 'pythoncomplete'
+    Bundle 'vim-scripts/python.vim'
+    Bundle 'vim-scripts/python_match.vim'
+    Bundle 'vim-scripts/pythoncomplete'
 " }
 
 
@@ -50,6 +51,7 @@
     " syntax highlighting
     syntax on
 
+    " character encoding used in the script
     scriptencoding utf-8
 
     " allow buffer switching without saving
@@ -203,8 +205,12 @@
     " }
 
     " clang_complete {
+        " completion options
+        set completeopt=menu,longest,preview
+
         " use libclang.so, not the executeable file clang
         let g:clang_use_library = 1
+        "let g:clang_library_path=""
         " select the first entry but not insert into the code
         let g:clang_auto_select = 1
         " automatically complete after ->, ., ::
@@ -215,6 +221,7 @@
         let g:clang_complete_copen = 1
         " periodically update the quickfix window
         "let g:clang_periodic_quickfix = 1
+        nnoremap <Leader>q :call g:ClangUpdateQuickFix()<CR>
         " close the preview window automatically after acompletion
         let g:clang_close_preview = 1
         " do some snippets magic after a ( or a , inside function   
@@ -222,8 +229,16 @@
         "let g:clang_snippets = 1
         " complete preprocessor macros and constants
         let g:clang_complete_macros = 1
-        " completion options
-        set completeopt=menu,longest,preview
+        " How results are sorted
+        let g:clang_sort_algo="priority"
+
+        " indexer
+        let g:clic_filename="index.db"
+        nnoremap <Leader>r :call ClangGetReferences()<CR>
+        nnoremap <Leader>d :call ClangGetDeclarations()<CR>
+        nnoremap <Leader>s :call ClangGetSubclasses()<CR>
+        map <F11> :call ClangIndexer()<CR>
+
     " }
 
     " supertab {
@@ -233,7 +248,7 @@
     " }
 
     " python-mode {
-        let g:pymode_lint_checker = "pyflakes"
+        let g:pymode_lint_checker = "pylint"
     " }
 
     " csupport {
@@ -265,7 +280,7 @@
     " }
 
     " ctags and cscope {
-        source $HOME/.vim/local_config/tagscoperc 
+        "source $HOME/.vim/local_config/tagscoperc 
     " }
 
 " }
@@ -276,6 +291,18 @@
 function! GetFileEncoding()
 	return (&fenc == '' ? &enc : &fenc)
 endfunction
+
+" Clang indexer
+function! ClangIndexer()
+    " get current cursor position
+    let lineNum = line(".")
+
+    exec ("%!clic_update.sh ".getcwd())
+
+    " return to the previous cursor position
+    exec lineNum
+endfunction
+
 
 " File Comment
 map <F4> :call FileComment()<cr>
