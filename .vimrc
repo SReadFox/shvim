@@ -29,7 +29,7 @@
     Bundle 'ervandew/supertab'
     Bundle 'tpope/vim-surround'
     Bundle 'vim-scripts/AutoClose'
-    "Bundle 'Lokaltog/vim-powerline'
+    Bundle 'Lokaltog/vim-powerline'
     Bundle 'vim-scripts/c.vim'
     Bundle 'klen/python-mode'
     Bundle 'python.vim'
@@ -59,9 +59,9 @@
     " indent at the same level of the previous line
     set autoindent
 
-    " color the 80th column, vim version >= 7.3
+    " color the 81st column, vim version >= 7.3
     if version >= 703
-        set colorcolumn=80
+        set colorcolumn=81
     endif
 
     " show
@@ -78,8 +78,15 @@
     set shiftwidth=4
     set expandtab
 
-    " line number
+    " Always show status line, even for one window
+    set laststatus=2
+
+    " line number and column number
     set number
+    set ruler
+
+    " make backspace work normal
+    set backspace=2
 
     " split
     map <S-s> :split<cr>
@@ -193,6 +200,10 @@
     " csupport {
         let g:C_FormatTime='%a %b %e %H:%M:%S %Y'
         let g:C_LocalTemplateFile=$HOME.'/.vim/local_config/csupport/Templates'
+    " }
+
+    " powerline {
+        let g:Powerline_symbols = 'fancy'
     " }
 
 
