@@ -26,8 +26,8 @@
     Bundle 'scrooloose/syntastic'
     Bundle 'scrooloose/nerdtree'
     Bundle 'scrooloose/nerdcommenter'
-    "Bundle 'Rip-Rip/clang_complete'
-    Bundle 'exclipy/clang_complete'
+    Bundle 'Rip-Rip/clang_complete'
+    "Bundle 'exclipy/clang_complete'
     Bundle 'ervandew/supertab'
     Bundle 'tpope/vim-surround'
     Bundle 'vim-scripts/AutoClose'
@@ -45,8 +45,11 @@
 " General Configurations {
     filetype plugin indent on 	" required!
 
-    " color
+    " color scheme
     colorscheme desert
+
+    " terminal color
+    set t_Co=256
 
     " syntax highlighting
     syntax on
@@ -233,11 +236,11 @@
         let g:clang_sort_algo="priority"
 
         " indexer
-        let g:clic_filename="index.db"
-        nnoremap <Leader>r :call ClangGetReferences()<CR>
-        nnoremap <Leader>d :call ClangGetDeclarations()<CR>
-        nnoremap <Leader>s :call ClangGetSubclasses()<CR>
-        map <F11> :call ClangIndexer()<CR>
+        "let g:clic_filename=".index/index.db"
+        "nnoremap <Leader>r :call ClangGetReferences()<CR>
+        "nnoremap <Leader>d :call ClangGetDeclarations()<CR>
+        "nnoremap <Leader>s :call ClangGetSubclasses()<CR>
+        "map <F11> :call ClangIndexer()<CR>
 
     " }
 
@@ -248,12 +251,15 @@
     " }
 
     " python-mode {
-        let g:pymode_lint_checker = "pylint"
+        let g:pymode_lint_checker = "pyflakes"
     " }
 
     " csupport {
         let g:C_FormatTime='%a %b %e %H:%M:%S %Y'
         let g:C_LocalTemplateFile=$HOME.'/.vim/local_config/csupport/Templates'
+
+        " stop using C-J to enterinsert mode 
+        let g:C_Ctrl_j   = 'off'
     " }
 
     " powerline {
