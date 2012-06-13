@@ -297,7 +297,13 @@
         map <C-A> :A<CR>
 
         " search path
-        "let g:alternateSearchPath = 'dwr:include,sfr:../include'
+        "   dwr: relative to working directory
+        "   sfr: relative to current file
+        "   abs: absolute path
+        "   reg: regex path
+        let g:alternateSearchPath = 'dwr:include,dwr:src,'
+                \.'sfr:../include,sfr:../src,'
+                \.'reg:/include/src/g/,reg:/src/include/g/'
 
         " Do not create the missing alternate file
         let g:alternateNoDefaultAlternate = 1
