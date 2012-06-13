@@ -34,6 +34,7 @@
     Bundle 'tpope/vim-fugitive'
     "Bundle 'Lokaltog/vim-powerline'
     Bundle 'vim-scripts/c.vim'
+    Bundle 'vim-scripts/a.vim'
     Bundle 'klen/python-mode'
     Bundle 'vim-scripts/python.vim'
     Bundle 'vim-scripts/python_match.vim'
@@ -214,24 +215,32 @@
         " use libclang.so, not the executeable file clang
         let g:clang_use_library = 1
         "let g:clang_library_path=""
+        "
         " select the first entry but not insert into the code
         let g:clang_auto_select = 1
+
         " automatically complete after ->, ., ::
         let g:clang_complete_auto = 1
+
         " highlight warnings and errors
         let g:clang_hl_errors = 1
+
         " open quickfix window on error
         let g:clang_complete_copen = 1
         " periodically update the quickfix window
         "let g:clang_periodic_quickfix = 1
         nnoremap <Leader>q :call g:ClangUpdateQuickFix()<CR>
+
         " close the preview window automatically after acompletion
         let g:clang_close_preview = 1
+
         " do some snippets magic after a ( or a , inside function   
         " call. Not currently fully working)
         "let g:clang_snippets = 1
+        "
         " complete preprocessor macros and constants
         let g:clang_complete_macros = 1
+
         " How results are sorted
         let g:clang_sort_algo="priority"
 
@@ -273,6 +282,25 @@
         nnoremap <silent> <leader>gb :Gblame<CR>
         nnoremap <silent> <leader>gl :Glog<CR>
         nnoremap <silent> <leader>gp :Git push<CR>
+    " }
+    
+    " A.vim {
+        let g:alternateExtensions_h = "c,cpp,cxx,cc,CC"
+        let g:alternateExtensions_H' = "C,CPP,CXX,CC"
+        let g:alternateExtensions_cpp' = "h,hpp"
+        let g:alternateExtensions_CPP' = "H,HPP"
+        let g:alternateExtensions_c' = "h"
+        let g:alternateExtensions_C' = "H"
+        let g:alternateExtensions_cxx' = "h"
+
+        " key map
+        map <C-A> :A<CR>
+
+        " search path
+        "let g:alternateSearchPath = 'dwr:include,sfr:../include'
+
+        " Do not create the missing alternate file
+        let g:alternateNoDefaultAlternate = 1
     " }
 
 
