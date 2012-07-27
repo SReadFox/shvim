@@ -55,6 +55,11 @@
     " syntax highlighting
     syntax on
 
+    " fold method - folds defined by syntax highlighting
+    set foldmethod=syntax
+    " all folds are open
+    set foldlevel=100
+
     " character encoding used in the script
     scriptencoding utf-8
 
