@@ -29,6 +29,7 @@
     Bundle 'Rip-Rip/clang_complete'
     "Bundle 'exclipy/clang_complete'
     Bundle 'ervandew/supertab'
+    Bundle 'FromtonRouge/OmniCppComplete'
     Bundle 'tpope/vim-surround'
     Bundle 'vim-scripts/AutoClose'
     Bundle 'tpope/vim-fugitive'
@@ -264,6 +265,20 @@
         let g:SuperTabDefaultCompletionType = '<C-X><C-O>'
     " }
 
+    " OmniCppComplete {
+        let OmniCpp_NamespaceSearch = 1
+        let OmniCpp_GlobalScopeSearch = 1
+        let OmniCpp_ShowAccess = 1
+        let OmniCpp_ShowPrototypeInAbbr = 1 " show func prototype
+        let OmniCpp_MayCompleteDot = 1   " complete after .
+        let OmniCpp_MayCompleteArrow = 1 " complete after ->
+        let OmniCpp_MayCompleteScope = 1 " complete after ::
+        let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+        " close completion window 
+        au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+        set completeopt=menuone,menu,longest"
+    " }
+
     " python-mode {
         let g:pymode_lint_checker = "pyflakes"
     " }
@@ -325,7 +340,7 @@
     " }
 
     " ctags and cscope {
-        "source $HOME/.vim/local_config/tagscoperc 
+        "source $HOME/.vim/local_config/tags/tagscoperc 
     " }
 
 " }
