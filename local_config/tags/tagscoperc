@@ -22,9 +22,9 @@ func! ProduceTags()
     if filereadable("cscope.out")   
         exec "!rm cscope.*"    
     endif    
-    exec "!ctags -R --c++-kinds=+p --fields=+ialS --extra=+q ."    
-    exec "!find . -name \"*.h\" -o -name \"*.hpp\" -o -name \"*.c\" -o -name \"*.cpp\" -o -name \"*.cc\" > cscope.files"
-    exec "!cscope -bkq -i cscope.files"    
+    exec "!find . -name \"*.h\" -o -name \"*.hpp\" -o -name \"*.c\" -o -name \"*.cpp\" -o -name \"*.cc\" > tagscope.files"
+    exec "!ctags --c++-kinds=+p --fields=+ialS --extra=+q -L tagscope.files"    
+    exec "!cscope -bkq -i tagscope.files"    
     set tags+=tags
     cscope add cscope.out
 endfunc
