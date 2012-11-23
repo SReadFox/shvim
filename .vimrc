@@ -16,24 +16,19 @@
     Bundle 'gmarik/vundle'
 
     " plugins
-    "Bundle 'vim-scripts/bufexplorer.zip'
     Bundle 'fholgado/minibufexpl.vim'
-    "Bundle 'vim-scripts/minibufexpl.vim'
     Bundle 'corntrace/bufexplorer'
-    "Bundle 'vim-scripts/taglist.vim'
     Bundle 'majutsushi/tagbar'
     Bundle 'vim-scripts/DoxygenToolkit.vim'
     Bundle 'scrooloose/syntastic'
     Bundle 'scrooloose/nerdtree'
     Bundle 'scrooloose/nerdcommenter'
-    Bundle 'Rip-Rip/clang_complete'
-    "Bundle 'exclipy/clang_complete'
+    "Bundle 'Rip-Rip/clang_complete'
     Bundle 'ervandew/supertab'
     Bundle 'FromtonRouge/OmniCppComplete'
     Bundle 'tpope/vim-surround'
     Bundle 'vim-scripts/AutoClose'
     Bundle 'tpope/vim-fugitive'
-    "Bundle 'Lokaltog/vim-powerline'
     Bundle 'vim-scripts/c.vim'
     Bundle 'vim-scripts/a.vim'
     Bundle 'klen/python-mode'
@@ -216,39 +211,39 @@
 
     " clang_complete {
         " completion options
-        set completeopt=menu,longest,preview
+        "set completeopt=menu,longest,preview
 
         " use libclang.so, not the executeable file clang
-        let g:clang_use_library = 1
+        "let g:clang_use_library = 1
         "let g:clang_library_path=""
         "
         " select the first entry but not insert into the code
-        let g:clang_auto_select = 1
+        "let g:clang_auto_select = 1
 
         " automatically complete after ->, ., ::
-        let g:clang_complete_auto = 1
+        "let g:clang_complete_auto = 1
 
         " highlight warnings and errors
-        let g:clang_hl_errors = 1
+        "let g:clang_hl_errors = 1
 
         " open quickfix window on error
-        let g:clang_complete_copen = 1
+        "let g:clang_complete_copen = 1
         " periodically update the quickfix window
         "let g:clang_periodic_quickfix = 1
-        nnoremap <Leader>q :call g:ClangUpdateQuickFix()<CR>
+        "nnoremap <Leader>q :call g:ClangUpdateQuickFix()<CR>
 
         " close the preview window automatically after acompletion
-        let g:clang_close_preview = 1
+        "let g:clang_close_preview = 1
 
         " do some snippets magic after a ( or a , inside function   
         " call. Not currently fully working)
         "let g:clang_snippets = 1
         "
         " complete preprocessor macros and constants
-        let g:clang_complete_macros = 1
+        "let g:clang_complete_macros = 1
 
         " How results are sorted
-        let g:clang_sort_algo="priority"
+        "let g:clang_sort_algo="priority"
 
         " indexer
         "let g:clic_filename=".index/index.db"
@@ -260,23 +255,35 @@
     " }
 
     " supertab {
-        "let g:SuperTabDefaultCompletionType = '<C-X><C-U>'
+        let g:SuperTabClosePreviewOnPopupClose = 1
+        " remember the last completion type until ESC
+        let g:SuperTabRetainCompletionType=2
         " use omni completion
-        let g:SuperTabDefaultCompletionType = '<C-X><C-O>'
+        "let g:SuperTabDefaultCompletionType = '<C-X><C-O>'
+        "let g:SuperTabDefaultCompletionType = '<C-X><C-U>'
+        let g:SuperTabDefaultCompletionType = 'context'
+        " completion chaining, use omni first
+        autocmd FileType *
+          \ if &omnifunc != '' |
+          \   let g:SuperTabContextDefaultCompletionType = '<C-X><C-U>' |
+          \   call SuperTabChain(&omnifunc, "<C-X><C-P>") |
+          \ endif
     " }
 
     " OmniCppComplete {
         let OmniCpp_NamespaceSearch = 1
         let OmniCpp_GlobalScopeSearch = 1
         let OmniCpp_ShowAccess = 1
-        let OmniCpp_ShowPrototypeInAbbr = 1 " show func prototype
-        let OmniCpp_MayCompleteDot = 1   " complete after .
-        let OmniCpp_MayCompleteArrow = 1 " complete after ->
-        let OmniCpp_MayCompleteScope = 1 " complete after ::
+        let OmniCpp_ShowPrototypeInAbbr = 1 
+        let OmniCpp_MayCompleteDot = 1   
+        let OmniCpp_MayCompleteArrow = 1
+        let OmniCpp_MayCompleteScope = 1 
+        let OmniCpp_SelectFirstItem = 1
+        let OmniCpp_LocalSearchDecl = 1
         let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
-        " close completion window 
-        au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-        set completeopt=menuone,menu,longest"
+        " close preview window
+        "au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+        set completeopt=menuone,menu,longest,preview
     " }
 
     " python-mode {
@@ -291,10 +298,6 @@
         let g:C_Ctrl_j   = 'off'
     " }
 
-    " powerline {
-        "let g:Powerline_symbols = 'fancy'
-    " }
-    
     " Fugitive {
         nnoremap <silent> <leader>gs :Gstatus<CR>
         nnoremap <silent> <leader>gd :Gdiff<CR>
@@ -340,7 +343,7 @@
     " }
 
     " ctags and cscope {
-        "source $HOME/.vim/local_config/tags/tagscoperc 
+        source $HOME/.vim/local_config/tags/tagscoperc 
     " }
 
 " }
