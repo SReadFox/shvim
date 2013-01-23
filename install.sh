@@ -8,7 +8,7 @@ echo "Thanks for installing shvim"
 echo "Backing up current vim configuration"
 
 today=`date +%Y%m%d`
-for i in $HOME/.vim $HOME/.vimrc $HOME/.gvimrc
+for i in $HOME/.vim $HOME/.vimrc $HOME/.gvimrc $shvim_home
 do 
   [ -e $i ] && mv $i $i.$today
 done
