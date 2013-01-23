@@ -86,6 +86,7 @@
     set tabstop=4
     set shiftwidth=4
     set expandtab
+        
 
     " Always show status line, even for one window
     set laststatus=2
@@ -377,7 +378,7 @@ function AddFileComment()
     call append(4, " * @version 1.0")
     call append(5, " * @date ".strftime("%a %b %e %H:%M:%S %Y"))
     call append(6, " * ")
-    call append(7, " * @copyright Copyright (C) ".strftime("%Y")." UESTC")
+    call append(7, " * @copyright Copyright (C) ".strftime("%Y"))
     call append(8, " * @author shiwei<shiwei2012@gmail.com>")
     call append(9, " */")
     echohl WarningMsg | echo "Successful in adding the copyright." 

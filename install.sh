@@ -32,7 +32,7 @@ ln -s $shvim_home/.vim $HOME/.vim
 ln -s $shvim_home/local_config $HOME/.vim/local_config
 
 echo "Installing Vundle"
-git clone http://github.com/gmarik/vundle.git $HOME/.vim/bundle/vundle
+git clone https://github.com/gmarik/vundle.git $HOME/.vim/bundle/vundle
 
 echo "Installing plugins using Vundle"
 vim +BundleInstall! +BundleClean +q
