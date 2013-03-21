@@ -31,7 +31,7 @@
     Bundle 'tpope/vim-fugitive'
     Bundle 'vim-scripts/c.vim'
     Bundle 'vim-scripts/a.vim'
-    Bundle 'klen/python-mode'
+    "Bundle 'klen/python-mode'
     Bundle 'vim-scripts/python.vim'
     Bundle 'vim-scripts/python_match.vim'
     Bundle 'vim-scripts/pythoncomplete'
@@ -83,8 +83,8 @@
     set hlsearch
 
     " TAB and space
-    set tabstop=4
-    set shiftwidth=4
+    set tabstop=2
+    set shiftwidth=2
     set expandtab
         
 
@@ -170,6 +170,7 @@
     " }
  
     " DoxygenToolkit {
+        let g:DoxygenToolkit_commentType="C++"
         map fg :Dox<cr>
     " }
 
@@ -340,7 +341,7 @@
 " External Tools {
 
     " Astyle {
-        source $HOME/.vim/local_config/astyle/astylerc 
+    ""    source $HOME/.vim/local_config/astyle/astylerc 
     " }
 
     " ctags and cscope {
@@ -371,16 +372,16 @@ endfunction
 " File Comment
 map <F4> :call FileComment()<cr>
 function AddFileComment()
-    call append(0, "/*")
-    call append(1, " * @file ".expand("%:t"))
-    call append(2, " * @brief ")
-    call append(3, " * ")
-    call append(4, " * @version 1.0")
-    call append(5, " * @date ".strftime("%a %b %e %H:%M:%S %Y"))
-    call append(6, " * ")
-    call append(7, " * @copyright Copyright (C) ".strftime("%Y"))
-    call append(8, " * @author shiwei<shiwei2012@gmail.com>")
-    call append(9, " */")
+    call append(0, "//")
+    call append(1, "// @file ".expand("%:t"))
+    call append(2, "// @brief ")
+    call append(3, "// ")
+    call append(4, "// @version 1.0")
+    call append(5, "// @date ".strftime("%a %b %e %H:%M:%S %Y"))
+    call append(6, "// ")
+    call append(7, "// @copyright Copyright (C) ".strftime("%Y"))
+    call append(8, "// @author shiwei<shiwei2012@gmail.com>")
+    call append(9, "//")
     echohl WarningMsg | echo "Successful in adding the copyright." 
             \ | echohl None
 endfunc
@@ -398,7 +399,8 @@ function FileComment()
     let n = 1 
     while n < 10
         let line = getline(n)
-        if line =~ '^ \*\s*\S* @file \S*.*$'
+        if (line =~ '^//\s*\S* @file \S*.*$') ||
+              \ (line =~ '^ *\s*\S* @file \S*.*$')
             call UpdateFileComment()
             return
         endif

@@ -29,7 +29,7 @@ func! ProduceTags()
     cscope add cscope.out
 endfunc
 
-nmap <silent> <F11> :call ProduceTags()<cr>
+nmap <silent> <F12> :call ProduceTags()<cr>
 
 "   's'   symbol: find all references to the token under cursor
 "   'g'   global: find global definition(s) of the token under cursor
