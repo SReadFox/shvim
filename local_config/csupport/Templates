@@ -3,11 +3,12 @@ $ =============================================================
 $ ========== USER MACROS ======================================
 $ =============================================================
 $
-|AUTHOR|    = shiwei
-|AUTHORREF| = silencemoon
+|AUTHOR|    = weishih
+|AUTHORREF| = weishih
 |EMAIL|     = shiwei2012@gmail.com
 |COMPANY|   = UESTC
 |COPYRIGHT| = Copyright (C) |YEAR|
+|STYLE|     = CPP
 $
 $ =============================================================
 $ ========== FILE INCLUDES ====================================
