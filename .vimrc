@@ -31,7 +31,7 @@
     Bundle 'tpope/vim-fugitive'
     Bundle 'vim-scripts/c.vim'
     Bundle 'vim-scripts/a.vim'
-    "Bundle 'klen/python-mode'
+    Bundle 'klen/python-mode'
     Bundle 'vim-scripts/python.vim'
     Bundle 'vim-scripts/python_match.vim'
     Bundle 'vim-scripts/pythoncomplete'
