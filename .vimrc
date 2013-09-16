@@ -35,6 +35,7 @@
     Bundle 'vim-scripts/python.vim'
     Bundle 'vim-scripts/python_match.vim'
     Bundle 'vim-scripts/pythoncomplete'
+    Bundle 'jnwhiteh/vim-golang'
 " }
 
 
