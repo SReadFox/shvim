@@ -16,6 +16,7 @@
     Bundle 'gmarik/vundle'
 
     " plugins
+    Bundle 'vim-scripts/DrawIt'
     Bundle 'fholgado/minibufexpl.vim'
     Bundle 'corntrace/bufexplorer'
     Bundle 'majutsushi/tagbar'
