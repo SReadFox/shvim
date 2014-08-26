@@ -48,7 +48,8 @@
     colorscheme desert
 
     " terminal color
-    set t_Co=256
+    "set t_Co=256
+    set t_Co=8
 
     " syntax highlighting
     syntax on
@@ -85,8 +86,8 @@
     set hlsearch
 
     " TAB and space
-    set tabstop=2
-    set shiftwidth=2
+    set tabstop=4
+    set shiftwidth=4
     set expandtab
         
 
@@ -261,7 +262,9 @@
     " supertab {
         let g:SuperTabClosePreviewOnPopupClose = 1
         " remember the last completion type until ESC
-        let g:SuperTabRetainCompletionType=2
+        let g:SuperTabRetainCompletionType = 2
+        " Preselecting the first entry
+        let g:SuperTabLongestHighlight = 1
         " use omni completion
         "let g:SuperTabDefaultCompletionType = '<C-X><C-O>'
         "let g:SuperTabDefaultCompletionType = '<C-X><C-U>'
@@ -269,7 +272,8 @@
         " completion chaining, use omni first
         autocmd FileType *
           \ if &omnifunc != '' |
-          \   let g:SuperTabContextDefaultCompletionType = '<C-X><C-U>' |
+          "\   let g:SuperTabContextDefaultCompletionType = '<C-X><C-U>' |
+          \   let g:SuperTabContextDefaultCompletionType = '<C-P>' |
           \   call SuperTabChain(&omnifunc, "<C-X><C-P>") |
           \ endif
     " }
@@ -286,7 +290,7 @@
         let OmniCpp_LocalSearchDecl = 1
         let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
         " close preview window
-        "au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+        au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
         set completeopt=menuone,menu,longest,preview
     " }
 
