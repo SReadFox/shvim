@@ -386,7 +386,7 @@ function AddFileComment()
     call append(5, "// @date ".strftime("%a %b %e %H:%M:%S %Y"))
     call append(6, "// ")
     call append(7, "// @copyright Copyright (C) ".strftime("%Y"))
-    call append(8, "// @author sobject<shiwei2012@gmail.com>")
+    call append(8, "// @author SReadFox<shiwei2012@gmail.com>")
     call append(9, "//")
     echohl WarningMsg | echo "Successful in adding the copyright." 
             \ | echohl None
