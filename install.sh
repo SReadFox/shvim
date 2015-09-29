@@ -21,7 +21,7 @@ then
     rm -rf $shvim_home
 fi
 
-git clone https://github.com/sobject/shvim.git $shvim_home
+git clone https://github.com/sreadfox/shvim.git $shvim_home
 
 echo "Preparing installation"
 mkdir -p $shvim_home/.vim/bundle
