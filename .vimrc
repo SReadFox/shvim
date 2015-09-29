@@ -40,6 +40,7 @@
     Bundle 'fatih/molokai'
     Bundle 'Shougo/neocomplete.vim'
     Bundle 'Shougo/neosnippet.vim'
+    Bundle 'Shougo/neosnippet-snippets'
     Bundle 'garyburd/go-explorer'
 " }
 
