@@ -36,7 +36,11 @@
     Bundle 'vim-scripts/python.vim'
     Bundle 'vim-scripts/python_match.vim'
     Bundle 'vim-scripts/pythoncomplete'
-    Bundle 'jnwhiteh/vim-golang'
+    Bundle 'fatih/vim-go'
+    Bundle 'fatih/molokai'
+    Bundle 'Shougo/neocomplete.vim'
+    Bundle 'Shougo/neosnippet.vim'
+    Bundle 'garyburd/go-explorer'
 " }
 
 
