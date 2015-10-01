@@ -16,32 +16,22 @@
     Bundle 'gmarik/vundle'
 
     " plugins
-    Bundle 'vim-scripts/DrawIt'
+    "Bundle 'vim-scripts/DrawIt'
+    "Bundle 'vim-scripts/DoxygenToolkit.vim'
     Bundle 'fholgado/minibufexpl.vim'
-    Bundle 'corntrace/bufexplorer'
     Bundle 'majutsushi/tagbar'
-    Bundle 'vim-scripts/DoxygenToolkit.vim'
-    Bundle 'scrooloose/syntastic'
     Bundle 'scrooloose/nerdtree'
     Bundle 'scrooloose/nerdcommenter'
-    "Bundle 'Rip-Rip/clang_complete'
-    Bundle 'ervandew/supertab'
-    Bundle 'FromtonRouge/OmniCppComplete'
-    Bundle 'tpope/vim-surround'
     Bundle 'vim-scripts/AutoClose'
+    Bundle 'tpope/vim-surround'
     Bundle 'tpope/vim-fugitive'
-    Bundle 'vim-scripts/c.vim'
+    Bundle 'SirVer/ultisnips'
+    Bundle 'honza/vim-snippets'
     Bundle 'vim-scripts/a.vim'
     Bundle 'klen/python-mode'
-    Bundle 'vim-scripts/python.vim'
-    Bundle 'vim-scripts/python_match.vim'
-    Bundle 'vim-scripts/pythoncomplete'
     Bundle 'fatih/vim-go'
-    Bundle 'fatih/molokai'
-    Bundle 'Shougo/neocomplete.vim'
-    Bundle 'Shougo/neosnippet.vim'
-    Bundle 'Shougo/neosnippet-snippets'
     Bundle 'garyburd/go-explorer'
+    Bundle 'Valloric/YouCompleteMe'
 " }
 
 
@@ -53,8 +43,8 @@
     colorscheme desert
 
     " terminal color
-    "set t_Co=256
-    set t_Co=8
+    set t_Co=256
+    "set t_Co=8
 
     " syntax highlighting
     syntax on
@@ -149,11 +139,6 @@
 
 " Plugin Configurations {
 "
-    " bufexplorer {
-    " \be to list buffers
-    " j, k to move, d to close, r to reverse order of buffer list
-    " }
-
     " minibufexpl {
         let g:miniBufExplMapWindowNavVim=1 
         let g:miniBufExplMapWindowNavArrows=1 
@@ -165,14 +150,6 @@
         map <S-p> :bp!<cr> 
     " }
 
-    " taglist {
-    "    let Tlist_Show_One_File=1
-    "    let Tlist_Exit_OnlyWindow=1
-    "    let Tlist_Use_Right_Window = 1
-    "    let Tlist_Sort_Type = "name"
-    "    map <F12> :Tlist<cr>
-    " }
-
     " TagBar {
         map tt :TagbarToggle<CR>
     " }
@@ -182,33 +159,6 @@
         map fg :Dox<cr>
     " }
 
-    " syntastic {
-        " Jump to the first error detected
-        let g:syntastic_auto_jump=1
-        " error window will be automatically opened when errors are
-        " detected, and closed when none are detected
-        let g:syntastic_auto_loc_list=1 
-        " the height of the location lists that syntastic opens
-        let g:syntastic_loc_list_height=5
-        " do syntax checks when buffers are first loaded as
-        " well as on saving
-        "let g:syntastic_check_on_open=1 
-
-        " check header files too
-        let g:syntastic_c_check_header = 1
-        let g:syntastic_cpp_check_header = 1
-        " re-check header files on every file write
-        let g:syntastic_c_auto_refresh_includes = 1
-        let g:syntastic_cpp_auto_refresh_includes = 1
-        " remove errors of files included via the g:syntastic_c_include_dirs
-        " setting from the result set
-        let g:syntastic_c_remove_include_errors = 1
-        let g:syntastic_cpp_remove_include_errors = 1
-        " additional compiler arguments like include directories or CFLAGS
-        let g:syntastic_c_config_file = '.syntastic_c_config'
-        let g:syntastic_cpp_config_file = '.syntastic_cpp_config'
-    " }
- 
     " nerdtree {
         map nt :NERDTreeToggle<cr>
         " open nerdtree and taglist by one key
@@ -219,96 +169,8 @@
         map cm <plug>NERDCommenterToggle
     " }
 
-    " clang_complete {
-        " completion options
-        "set completeopt=menu,longest,preview
-
-        " use libclang.so, not the executeable file clang
-        "let g:clang_use_library = 1
-        "let g:clang_library_path=""
-        "
-        " select the first entry but not insert into the code
-        "let g:clang_auto_select = 1
-
-        " automatically complete after ->, ., ::
-        "let g:clang_complete_auto = 1
-
-        " highlight warnings and errors
-        "let g:clang_hl_errors = 1
-
-        " open quickfix window on error
-        "let g:clang_complete_copen = 1
-        " periodically update the quickfix window
-        "let g:clang_periodic_quickfix = 1
-        "nnoremap <Leader>q :call g:ClangUpdateQuickFix()<CR>
-
-        " close the preview window automatically after acompletion
-        "let g:clang_close_preview = 1
-
-        " do some snippets magic after a ( or a , inside function   
-        " call. Not currently fully working)
-        "let g:clang_snippets = 1
-        "
-        " complete preprocessor macros and constants
-        "let g:clang_complete_macros = 1
-
-        " How results are sorted
-        "let g:clang_sort_algo="priority"
-
-        " indexer
-        "let g:clic_filename=".index/index.db"
-        "nnoremap <Leader>r :call ClangGetReferences()<CR>
-        "nnoremap <Leader>d :call ClangGetDeclarations()<CR>
-        "nnoremap <Leader>s :call ClangGetSubclasses()<CR>
-        "map <F11> :call ClangIndexer()<CR>
-
-    " }
-
-    " supertab {
-        let g:SuperTabClosePreviewOnPopupClose = 1
-        " remember the last completion type until ESC
-        let g:SuperTabRetainCompletionType = 2
-        " Preselecting the first entry
-        let g:SuperTabLongestHighlight = 1
-        " use omni completion
-        "let g:SuperTabDefaultCompletionType = '<C-X><C-O>'
-        "let g:SuperTabDefaultCompletionType = '<C-X><C-U>'
-        let g:SuperTabDefaultCompletionType = 'context'
-        " completion chaining, use omni first
-        autocmd FileType *
-          \ if &omnifunc != '' |
-          "\   let g:SuperTabContextDefaultCompletionType = '<C-X><C-U>' |
-          \   let g:SuperTabContextDefaultCompletionType = '<C-P>' |
-          \   call SuperTabChain(&omnifunc, "<C-X><C-P>") |
-          \ endif
-    " }
-
-    " OmniCppComplete {
-        let OmniCpp_NamespaceSearch = 1
-        let OmniCpp_GlobalScopeSearch = 1
-        let OmniCpp_ShowAccess = 1
-        let OmniCpp_ShowPrototypeInAbbr = 1 
-        let OmniCpp_MayCompleteDot = 1   
-        let OmniCpp_MayCompleteArrow = 1
-        let OmniCpp_MayCompleteScope = 1 
-        let OmniCpp_SelectFirstItem = 1
-        let OmniCpp_LocalSearchDecl = 1
-        let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
-        " close preview window
-        au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-        set completeopt=menuone,menu,longest,preview
-    " }
-
     " python-mode {
         let g:pymode_lint_checker = "pyflakes"
-    " }
-
-    " csupport {
-        let g:C_FormatTime='%a %b %e %H:%M:%S %Y'
-        let g:C_LocalTemplateFile=$HOME.'/.vim/local_config/csupport/Templates'
-
-        " stop using C-J to enterinsert mode 
-        let g:C_Ctrl_j   = 'off'
     " }
 
     " Fugitive {
@@ -345,15 +207,48 @@
         let g:alternateNoDefaultAlternate = 1
     " }
 
+    " vim-go {
+        " enable syntax-highlighting for functions, methods and struts
+        let g:go_highlight_functions = 1
+        let g:go_highlight_methods = 1
+        let g:go_highlight_structs = 1
+        let g:go_highlight_operators = 1
+        let g:go_highlight_build_constraints = 1
+        " Enable goimports to automatically insert import paths instead of
+        " gofmt
+        let g:go_fmt_command = "goimports"
+        " do not show errors for the fmt command
+        " let g:go_fmt_fail_silently = 1
+        " disable auto fmt on save
+        " let g:go_fmt_autosave = 0
+        " Disable opening browser after posting your snippet to
+        " play.golang.org
+        let g:go_play_open_browser = 0
+        " By default when :GoInstallBinaries is called, the binaries are
+        " installed to $GOBIN or $GOPATH/bin. To change it 
+        " let g:go_bin_path = expand("~/app/gotools")
+        " key mappings
+        au FileType go nmap <leader>r <Plug>(go-run)
+        au FileType go nmap <leader>b <Plug>(go-build)
+        au FileType go nmap <leader>t <Plug>(go-test)
+        au FileType go nmap <leader>c <Plug>(go-coverage)
+        au FileType go nmap <Leader>ds <Plug>(go-def-split)
+        au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+        au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+        au FileType go nmap <Leader>gd <Plug>(go-doc)
+        au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+        au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+        au FileType go nmap <Leader>s <Plug>(go-implements)
+        au FileType go nmap <Leader>i <Plug>(go-info)
+        au FileType go nmap <Leader>e <Plug>(go-rename)
+    " }
 
-" }
+    " YCM {
+        set completeopt-=preview
+    " }
 
 
 " External Tools {
-
-    " Astyle {
-    ""    source $HOME/.vim/local_config/astyle/astylerc 
-    " }
 
     " ctags and cscope {
         source $HOME/.vim/local_config/tags/tagscoperc 
@@ -367,58 +262,6 @@
 function! GetFileEncoding()
 	return (&fenc == '' ? &enc : &fenc)
 endfunction
-
-" Clang indexer
-function! ClangIndexer()
-    " get current cursor position
-    let lineNum = line(".")
-
-    exec ("%!clic_update.sh ".getcwd())
-
-    " return to the previous cursor position
-    exec lineNum
-endfunction
-
-
-" File Comment
-map <F4> :call FileComment()<cr>
-function AddFileComment()
-    call append(0, "//")
-    call append(1, "// @file ".expand("%:t"))
-    call append(2, "// @brief ")
-    call append(3, "// ")
-    call append(4, "// @version 1.0")
-    call append(5, "// @date ".strftime("%a %b %e %H:%M:%S %Y"))
-    call append(6, "// ")
-    call append(7, "// @copyright Copyright (C) ".strftime("%Y"))
-    call append(8, "// @author SReadFox<shiwei2012@gmail.com>")
-    call append(9, "//")
-    echohl WarningMsg | echo "Successful in adding the copyright." 
-            \ | echohl None
-endfunc
-
-function UpdateFileComment()
-    normal m'
-    execute '/@file/s@e.*$@\="e ".expand("%:t")@'
-    execute "noh"
-    normal ''
-    echohl WarningMsg | echo "Successful in updating the copyright." 
-            \ | echohl None
-endfunc'
-
-function FileComment()
-    let n = 1 
-    while n < 10
-        let line = getline(n)
-        if (line =~ '^//\s*\S* @file \S*.*$') ||
-              \ (line =~ '^ *\s*\S* @file \S*.*$')
-            call UpdateFileComment()
-            return
-        endif
-        let n = n + 1
-    endwhile
-    call AddFileComment()
-endfunction"
 
 " }
 
